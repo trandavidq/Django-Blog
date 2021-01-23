@@ -13,9 +13,12 @@ def verify(request):
     print(username)
     print(password)
     user = authenticate(username=username, password=password)
+    context= {
+        'user':user,
+    }
     if user is not None:
         auth_login(request, user)
-        return HttpResponse("Login successful")
+        return render(request,'blog/home.html',context)
         
     else:
         # Return an 'invalid login' error message.
