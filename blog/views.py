@@ -1,7 +1,8 @@
-from django.shortcuts import render
-from django.http import HttpResponse
+from django.shortcuts import render, redirect
+from django.http import HttpResponse, HttpResponseRedirect
 from django.contrib.auth.models import User
-from django.contrib.auth import authenticate, login as auth_login
+from django.contrib.auth import authenticate, login as auth_login, logout as auth_logout
+from django.urls import reverse
 # Create your views here.
 def login(request):
     return render(request,'blog/login.html')
@@ -26,3 +27,7 @@ def verify(request):
     
 def signup(request):
     return render(request,'blog/signup.html')
+
+def logout(request):
+    auth_logout(request)
+    return redirect('blog:login')
