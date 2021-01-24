@@ -15,12 +15,13 @@ def verify(request):
     print(username)
     print(password)
     user = authenticate(username=username, password=password)
-    context= {
+    
+    if user is not None:
+        auth_login(request, user)
+        context= {
         'user':user,
         'user_posts':user.blog_post_set.all(),
     }
-    if user is not None:
-        auth_login(request, user)
         return render(request,'blog/home.html',context)
         
     else:
@@ -74,3 +75,8 @@ def post(request):
         'user_posts':author.blog_post_set.all(),
     }
     return render(request,'blog/home.html',context)
+
+def delete(request):
+    #delete the selected post
+    user=request.user
+    return HttpResponse("Delete (work on)")
