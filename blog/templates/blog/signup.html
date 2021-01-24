@@ -7,5 +7,13 @@
 </head>
 <body>
     This is the signup page
+    <form action="{% url 'blog:register'%}", method="POST">
+        {% csrf_token %}
+        <label for="username">Username:</label><br>
+        <input type="text" id="username" name="username"><br>
+        <label for="password">Password:</label><br>
+        <input type="text" id="password" name="password"><br><br>
+        <input type="submit" value="Sign up">
+    </form> 
 </body>
 </html>
