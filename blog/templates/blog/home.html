@@ -7,7 +7,9 @@
 </head>
 <body>
     <h1>{{user.username}}</h1>
-    <a href="{% url 'blog:logout' %}">logout</a>
+    <form action="{% url 'blog:logout'%}">
+        <button>Logout</button>
+    </form>
     <!-- Create blog post -->
     <form action="{% url 'blog:createPost'%}">
         <button>Create a post</button>
