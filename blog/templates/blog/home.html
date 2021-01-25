@@ -9,15 +9,8 @@
     <h1>{{user.username}}</h1>
     <a href="{% url 'blog:logout' %}">logout</a>
     <!-- Create blog post -->
-    <h1>Create a post:</h1>
-    <form action="{% url 'blog:post'%}", method="POST">
-        {% csrf_token %}
-        <label for="title">Title:</label><br>
-        <input type="text" id="title" name="title"><br>
-        <label for="body">Body:</label><br>
-        <textarea name="body" id="body" cols="100" rows="40"></textarea>
-        <br><br>
-        <input type="submit" value="Post">
+    <form action="{% url 'blog:createPost'%}">
+        <button>Create a post</button>
     </form>
     <!-- Shows list of all blog posts, delete option available-->
     

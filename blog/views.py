@@ -80,3 +80,6 @@ def delete(request):
     #delete the selected post
     user=request.user
     return HttpResponse("Delete (work on)")
+
+def createPost(request):
+    return render(request,'blog/post.html')
